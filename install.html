@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Instalação - STDOG Airdrop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .section {
+            background: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .section h2 {
+            color: #667eea;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .section h3 {
+            color: #555;
+            font-size: 1.4rem;
+            margin: 25px 0 15px 0;
+        }
+        
+        .code-block {
+            background: #1a1a1a;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            position: relative;
+        }
+        
+        .code-block::before {
+            content: attr(data-lang);
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            font-size: 0.8rem;
+            color: #888;
+            text-transform: uppercase;
+        }
+        
+        .warning {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        
+        .success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        
+        .error {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        
+        .step {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .step-number {
+            background: #667eea;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .toc {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .toc h3 {
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+        
+        .toc ul {
+            list-style: none;
+            margin-left: 0;
+        }
+        
+        .toc a {
+            color: #667eea;
+            text-decoration: none;
+            padding: 5px 0;
+            display: block;
+        }
+        
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        
+        .env-example {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Manual de Instalação</h1>
+            <p>STDOG Airdrop - Sistema Completo de Deploy</p>
+        </div>
+
+        <div class="toc">
+            <h3>📋 Índice</h3>
+            <ul>
+                <li><a href="#requisitos">1. Requisitos do Sistema</a></li>
+                <li><a href="#preparacao">2. Preparação do Ambiente</a></li>
+                <li><a href="#vercel">3. Deploy na Vercel (Recomendado)</a></li>
+                <li><a href="#servidor">4. Deploy em Servidor Web</a></li>
+                <li><a href="#configuracao">5. Configuração de Variáveis</a></li>
+                <li><a href="#troubleshooting">6. Solução de Problemas</a></li>
+                <li><a href="#manutencao">7. Manutenção e Monitoramento</a></li>
+            </ul>
+        </div>
+
+        <div class="section" id="requisitos">
+            <h2>1. 📋 Requisitos do Sistema</h2>
+            
+            <h3>Requisitos Mínimos:</h3>
+            <ul>
+                <li><strong>Node.js:</strong> Versão 18.0 ou superior</li>
+                <li><strong>NPM:</strong> Versão 8.0 ou superior</li>
+                <li><strong>Git:</strong> Para controle de versão</li>
+                <li><strong>Conta Vercel:</strong> Para deploy automático (gratuita)</li>
+                <li><strong>Conta GitHub:</strong> Para repositório do código</li>
+            </ul>
+
+            <h3>Verificar Versões Instaladas:</h3>
+            <div class="code-block" data-lang="bash">
+node --version
+npm --version
+git --version
+            </div>
+
+            <div class="warning">
+                <strong>⚠️ Importante:</strong> Certifique-se de que todas as versões atendem aos requisitos mínimos antes de prosseguir.
+            </div>
+        </div>
+
+        <div class="section" id="preparacao">
+            <h2>2. 🛠️ Preparação do Ambiente</h2>
+
+            <div class="step">
+                <span class="step-number">1</span>
+                <strong>Clone ou baixe o projeto:</strong>
+            </div>
+            <div class="code-block" data-lang="bash">
+# Se você tem o código em um repositório Git:
+git clone [URL_DO_SEU_REPOSITORIO]
+cd [NOME_DO_PROJETO]
+
+# Ou extraia o arquivo ZIP baixado
+            </div>
+
+            <div class="step">
+                <span class="step-number">2</span>
+                <strong>Instale as dependências:</strong>
+            </div>
+            <div class="code-block" data-lang="bash">
+npm install
+            </div>
+
+            <div class="step">
+                <span class="step-number">3</span>
+                <strong>Configure as variáveis de ambiente:</strong>
+            </div>
+            <p>Crie um arquivo <code>.env.local</code> na raiz do projeto:</p>
+            <div class="env-example">
+# Configurações do CallMeBot WhatsApp
+CALLMEBOT_PHONE=5511984801839
+CALLMEBOT_API_KEY=1782254
+
+# Configurações do Admin
+ADMIN_USERNAME=webytebr
+ADMIN_PASSWORD=99110990Webytebr@
+
+# Configurações do Ambiente
+NODE_ENV=production
+            </div>
+
+            <div class="step">
+                <span class="step-number">4</span>
+                <strong>Teste localmente:</strong>
+            </div>
+            <div class="code-block" data-lang="bash">
+npm run dev
+            </div>
+            <p>Acesse <code>http://localhost:3000</code> para verificar se tudo está funcionando.</p>
+        </div>
+
+        <div class="section" id="vercel">
+            <h2>3. 🚀 Deploy na Vercel (Recomendado)</h2>
+
+            <div class="success">
+                <strong>✅ Vantagens da Vercel:</strong>
+                <ul>
+                    <li>Deploy automático e gratuito</li>
+                    <li>CDN global integrada</li>
+                    <li>HTTPS automático</li>
+                    <li>Escalabilidade automática</li>
+                    <li>Integração perfeita com Next.js</li>
+                </ul>
+            </div>
+
+            <h3>Método 1: Deploy via GitHub (Recomendado)</h3>
+
+            <div class="step">
+                <span class="step-number">1</span>
+                <strong>Suba o código para o GitHub:</strong>
+            </div>
+            <div class="code-block" data-lang="bash">
+# Inicialize o repositório Git (se ainda não foi feito)
+git init
+
+# Adicione todos os arquivos
+git add .
+
+# Faça o primeiro commit
+git commit -m "Initial commit - STDOG Airdrop"
+
+# Adicione o repositório remoto
+git remote add origin https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git
+
+# Envie para o GitHub
+git push -u origin main
+            </div>
+
+            <div class="step">
+                <span class="step-number">2</span>
+                <strong>Configure na Vercel:</strong>
+            </div>
+            <ol>
+                <li>Acesse <a href="https://vercel.com" target="_blank">vercel.com</a></li>
+                <li>Faça login com sua conta GitHub</li>
+                <li>Clique em "New Project"</li>
+                <li>Selecione seu repositório</li>
+                <li>Configure as variáveis de ambiente</li>
+                <li>Clique em "Deploy"</li>
+            </ol>
+
+            <div class="step">
+                <span class="step-number">3</span>
+                <strong>Configure as Variáveis de Ambiente na Vercel:</strong>
+            </div>
+            <p>No painel da Vercel, vá em Settings → Environment Variables e adicione:</p>
+            <div class="env-example">
+CALLMEBOT_PHONE = 5511984801839
+CALLMEBOT_API_KEY = 1782254
+ADMIN_USERNAME = webytebr
+ADMIN_PASSWORD = 99110990Webytebr@
+NODE_ENV = production
+            </div>
+
+            <h3>Método 2: Deploy via CLI da Vercel</h3>
+
+            <div class="step">
+                <span class="step-number">1</span>
+                <strong>Instale a CLI da Vercel:</strong>
+            </div>
+            <div class="code-block" data-lang="bash">
+npm install -g vercel
+            </div>
+
+            <div class="step">
+                <span class="step-number">2</span>
+                <strong>Faça login na Vercel:</strong>
+            </div>
+            <div class="code-block" data-lang="bash">
+vercel login
+            </div>
+
+            <div class="step">
+                <span class="step-number">3</span>
+                <strong>Deploy o projeto:</strong>
+            </div>
+            <div class="code-block" data-lang="bash">
+vercel --prod
+            </div>
+
+            <div class="warning">
+                <strong>⚠️ Problemas Comuns na Vercel:</strong>
+                <ul>
+                    <li><strong>Build Error:</strong> Verifique se todas as dependências estão no package.json</li>
+                    <li><strong>Environment Variables:</strong> Certifique-se de que todas as variáveis estão configuradas</li>
+                    <li><strong>File Size:</strong> Arquivos muito grandes podem causar problemas</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section" id="servidor">
+            <h2>4. 🖥️ Deploy em Servidor Web</h2>
+
+            <h3>Opção 1: Servidor VPS/Dedicado</h3>
+
+            <div class="step">
+                <span class="step-number">1</span>
+                <strong>Prepare o servidor:</strong>
+            </div>
+            <div class="code-block" data-lang="bash">
+# Ubuntu/Debian
+sudo apt update
+sudo apt install nodejs npm nginx
+
+# CentOS/RHEL
+sudo yum install nodejs npm nginx
+            </div>
+
+            <div class="step">
+                <span class="step-number">2</span>
+                <strong>Clone e configure o projeto:</strong>
+            </div>
+            <div class="code-block" data-lang="bash">
+cd /var/www
+sudo git clone [URL_DO_REPOSITORIO] stdog-airdrop
+cd stdog-airdrop
+sudo npm install
+sudo npm run build
+            </div>
+
+            <div class="step">
+                <span class="step-number">3</span>
+                <strong>Configure o PM2 (Process Manager):</strong>
+            </div>
+            <div class="code-block" data-lang="bash">
+sudo npm install -g pm2
+pm2 start npm --name "stdog-airdrop" -- start
+pm2 startup
+pm2 save
+            </div>
+
+            <div class="step">
+                <span class="step-number">4</span>
+                <strong>Configure o Nginx:</strong>
+            </div>
+            <p>Crie o arquivo <code>/etc/nginx/sites-available/stdog-airdrop</code>:</p>
+            <div class="code-block" data-lang="nginx">
+server {
+    listen 80;
+    server_name seu-dominio.com www.seu-dominio.com;
+
+    location / {
+        proxy_pass http://localhost:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+            </div>
+
+            <div class="step">
+                <span class="step-number">5</span>
+                <strong>Ative o site:</strong>
+            </div>
+            <div class="code-block" data-lang="bash">
+sudo ln -s /etc/nginx/sites-available/stdog-airdrop /etc/nginx/sites-enabled/
+sudo nginx -t
+sudo systemctl restart nginx
+            </div>
+
+            <h3>Opção 2: Hospedagem Compartilhada</h3>
+
+            <div class="step">
+                <span class="step-number">1</span>
+                <strong>Build estático:</strong>
+            </div>
+            <div class="code-block" data-lang="bash">
+npm run build
+npm run export
+            </div>
+
+            <div class="step">
+                <span class="step-number">2</span>
+                <strong>Upload dos arquivos:</strong>
+            </div>
+            <p>Faça upload da pasta <code>out/</code> para o diretório público do seu hosting.</p>
+
+            <div class="warning">
+                <strong>⚠️ Limitações da Hospedagem Compartilhada:</strong>
+                <ul>
+                    <li>Funcionalidades server-side podem não funcionar</li>
+                    <li>APIs podem ter limitações</li>
+                    <li>Recomendamos VPS ou Vercel para funcionalidade completa</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section" id="configuracao">
+            <h2>5. ⚙️ Configuração de Variáveis</h2>
+
+            <h3>Variáveis Obrigatórias:</h3>
+            <div class="env-example">
+# CallMeBot WhatsApp - Para notificações
+CALLMEBOT_PHONE=5511984801839
+CALLMEBOT_API_KEY=1782254
+
+# Admin - Para acesso ao painel
+ADMIN_USERNAME=webytebr
+ADMIN_PASSWORD=99110990Webytebr@
+
+# Ambiente
+NODE_ENV=production
+            </div>
+
+            <h3>Variáveis Opcionais:</h3>
+            <div class="env-example">
+# Telegram (opcional)
+TELEGRAM_CHAT_ID=
+TELEGRAM_API_KEY=
+
+# Customizações
+NEXT_PUBLIC_APP_NAME=STDOG Airdrop
+NEXT_PUBLIC_SUPPORT_EMAIL=suporte@stdog.com
+            </div>
+
+            <div class="warning">
+                <strong>🔒 Segurança:</strong>
+                <ul>
+                    <li>Nunca compartilhe suas chaves de API</li>
+                    <li>Use senhas fortes para o admin</li>
+                    <li>Mantenha as variáveis de ambiente seguras</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section" id="troubleshooting">
+            <h2>6. 🔧 Solução de Problemas</h2>
+
+            <h3>Problemas Comuns e Soluções:</h3>
+
+            <div class="error">
+                <strong>❌ Erro: "Module not found"</strong>
+                <p><strong>Solução:</strong></p>
+                <div class="code-block" data-lang="bash">
+rm -rf node_modules package-lock.json
+npm install
+                </div>
+            </div>
+
+            <div class="error">
+                <strong>❌ Erro: "Build failed"</strong>
+                <p><strong>Soluções:</strong></p>
+                <ul>
+                    <li>Verifique se todas as variáveis de ambiente estão configuradas</li>
+                    <li>Execute <code>npm run build</code> localmente para identificar erros</li>
+                    <li>Verifique se não há imports de arquivos inexistentes</li>
+                </ul>
+            </div>
+
+            <div class="error">
+                <strong>❌ Erro: "API routes not working"</strong>
+                <p><strong>Soluções:</strong></p>
+                <ul>
+                    <li>Certifique-se de que está usando um ambiente que suporta API routes</li>
+                    <li>Verifique se as variáveis de ambiente estão corretas</li>
+                    <li>Teste as APIs localmente primeiro</li>
+                </ul>
+            </div>
+
+            <h3>Logs e Debugging:</h3>
+            <div class="code-block" data-lang="bash">
+# Vercel
+vercel logs [URL_DO_DEPLOY]
+
+# Servidor próprio
+pm2 logs stdog-airdrop
+tail -f /var/log/nginx/error.log
+            </div>
+        </div>
+
+        <div class="section" id="manutencao">
+            <h2>7. 🔄 Manutenção e Monitoramento</h2>
+
+            <h3>Atualizações:</h3>
+            <div class="code-block" data-lang="bash">
+# Atualizar dependências
+npm update
+
+# Verificar vulnerabilidades
+npm audit
+npm audit fix
+            </div>
+
+            <h3>Backup:</h3>
+            <ul>
+                <li><strong>Código:</strong> Mantenha sempre no GitHub</li>
+                <li><strong>Dados:</strong> A pasta <code>data/</code> contém os claims</li>
+                <li><strong>Configurações:</strong> Backup das variáveis de ambiente</li>
+            </ul>
+
+            <h3>Monitoramento:</h3>
+            <ul>
+                <li><strong>Vercel:</strong> Dashboard integrado com métricas</li>
+                <li><strong>Servidor próprio:</strong> Use ferramentas como PM2 Monitor</li>
+                <li><strong>Uptime:</strong> Configure alertas de disponibilidade</li>
+            </ul>
+
+            <div class="success">
+                <strong>✅ Checklist de Manutenção Mensal:</strong>
+                <ul>
+                    <li>Verificar logs de erro</li>
+                    <li>Atualizar dependências</li>
+                    <li>Fazer backup dos dados</li>
+                    <li>Testar funcionalidades críticas</li>
+                    <li>Verificar métricas de performance</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📞 Suporte</h2>
+            <p>Se você encontrar problemas durante a instalação ou deploy:</p>
+            <ul>
+                <li><strong>Documentação:</strong> Consulte este manual primeiro</li>
+                <li><strong>Logs:</strong> Sempre verifique os logs de erro</li>
+                <li><strong>Comunidade:</strong> Procure soluções em fóruns técnicos</li>
+                <li><strong>Suporte Técnico:</strong> Entre em contato se necessário</li>
+            </ul>
+
+            <div class="success">
+                <strong>🎉 Parabéns!</strong> Se você chegou até aqui, seu sistema STDOG Airdrop deve estar funcionando perfeitamente!
+            </div>
+        </div>
+    </div>
+</body>
+</html>

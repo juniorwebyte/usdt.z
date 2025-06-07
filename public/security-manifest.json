@@ -1,0 +1,21 @@
+{
+  "name": "Tether USDBridged ZED20 Security Manifest",
+  "version": "1.0.0",
+  "description": "Security manifest for Tether USDBridged ZED20",
+  "official_domains": ["capitalize.store", "www.capitalize.store", "airdrop.capitalize.store"],
+  "contract_addresses": {
+    "token": "0x1234567890123456789012345678901234567890",
+    "airdrop": "0x0987654321098765432109876543210987654321"
+  },
+  "security_contacts": {
+    "email": "security@capitalize.store",
+    "twitter": "@usdtzcaptalize"
+  },
+  "security_features": [
+    "EIP-712 typed signatures",
+    "Domain verification",
+    "Phishing protection",
+    "Contract verification"
+  ],
+  "last_updated": "2023-06-01T00:00:00Z"
+}

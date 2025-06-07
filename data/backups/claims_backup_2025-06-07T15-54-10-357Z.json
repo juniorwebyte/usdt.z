@@ -1,0 +1,20 @@
+[
+  {
+    "txHash": "0x1b6403aeeef76042a685694556ac26d681ddc266776017da9224912a6cda5eb8",
+    "timestamp": "2025-06-07T15:54:09.383Z",
+    "amount": "0.000012",
+    "currency": "BNB",
+    "walletAddress": "0x2379e7437ff61d72c58c8d56f91d2323dea58052",
+    "twitterUsername": "@juniorwebyte",
+    "telegramId": "178755100",
+    "tokensAllocated": 10000,
+    "tokenSymbol": "USDT.z",
+    "tokenName": "Tether USD Bridged ZED20",
+    "id": "claim_1749311650350_9mma4g2z0",
+    "createdAt": "2025-06-07T15:54:10.350Z",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
+    "ipAddress": "::1",
+    "status": "pending",
+    "processed": false
+  }
+]
