@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia de Instalação - STDOG Airdrop</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1, h2 { color: #2c3e50; }
+        .step {
+            background: #f8f9fa;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #007bff;
+            border-radius: 5px;
+        }
+        code {
+            background: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Menlo', monospace;
+        }
+        .command {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+        .warning {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Guia de Instalação - STDOG Airdrop</h1>
+        
+        <div class="success">
+            <strong>✅ Aplicação Otimizada para Deploy!</strong><br>
+            Esta versão foi completamente otimizada para funcionar perfeitamente na Vercel e outros servidores web.
+        </div>
+
+        <h2>📋 Pré-requisitos</h2>
+        <div class="step">
+            <h3>1. Node.js</h3>
+            <p>Instale o Node.js versão 18 ou superior:</p>
+            <div class="command">curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -<br>sudo apt-get install -y nodejs</div>
+        </div>
+
+        <div class="step">
+            <h3>2. Git</h3>
+            <p>Certifique-se de ter o Git instalado:</p>
+            <div class="command">sudo apt-get install git</div>
+        </div>
+
+        <h2>🔧 Instalação Local</h2>
+        
+        <div class="step">
+            <h3>1. Clone o Projeto</h3>
+            <div class="command">git clone &lt;URL_DO_REPOSITORIO&gt;<br>cd stdog-airdrop</div>
+        </div>
+
+        <div class="step">
+            <h3>2. Instale as Dependências</h3>
+            <div class="command">npm install</div>
+        </div>
+
+        <div class="step">
+            <h3>3. Configure as Variáveis de Ambiente</h3>
+            <p>Crie um arquivo <code>.env.local</code>:</p>
+            <div class="command">
+# Configurações do Admin<br>
+ADMIN_USERNAME=webytebr<br>
+ADMIN_PASSWORD=99110990Webytebr@<br>
+<br>
+# Configurações do WhatsApp (opcional)<br>
+CALLMEBOT_PHONE=5511984801839<br>
+CALLMEBOT_API_KEY=1782254<br>
+<br>
+# Ambiente<br>
+NODE_ENV=development
+            </div>
+        </div>
+
+        <div class="step">
+            <h3>4. Execute o Projeto</h3>
+            <div class="command">npm run dev</div>
+            <p>Acesse: <code>http://localhost:3000</code></p>
+        </div>
+
+        <h2>☁️ Deploy na Vercel</h2>
+        
+        <div class="step">
+            <h3>1. Conecte ao GitHub</h3>
+            <p>1. Faça push do código para um repositório GitHub</p>
+            <p>2. Acesse <a href="https://vercel.com" target="_blank">vercel.com</a></p>
+            <p>3. Conecte sua conta GitHub</p>
+        </div>
+
+        <div class="step">
+            <h3>2. Importe o Projeto</h3>
+            <p>1. Clique em "New Project"</p>
+            <p>2. Selecione o repositório</p>
+            <p>3. Configure as variáveis de ambiente</p>
+        </div>
+
+        <div class="step">
+            <h3>3. Variáveis de Ambiente na Vercel</h3>
+            <p>Adicione as seguintes variáveis:</p>
+            <ul>
+                <li><code>ADMIN_USERNAME</code> = webytebr</li>
+                <li><code>ADMIN_PASSWORD</code> = 99110990Webytebr@</li>
+                <li><code>CALLMEBOT_PHONE</code> = 5511984801839</li>
+                <li><code>CALLMEBOT_API_KEY</code> = 1782254</li>
+                <li><code>NODE_ENV</code> = production</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h3>4. Deploy</h3>
+            <p>Clique em "Deploy" e aguarde o processo finalizar.</p>
+        </div>
+
+        <h2>🌐 Deploy em Outros Servidores</h2>
+        
+        <div class="step">
+            <h3>VPS/Servidor Dedicado</h3>
+            <div class="command">
+# 1. Clone o projeto<br>
+git clone &lt;URL_DO_REPOSITORIO&gt;<br>
+cd stdog-airdrop<br>
+<br>
+# 2. Instale dependências<br>
+npm install<br>
+<br>
+# 3. Configure variáveis de ambiente<br>
+cp .env.local.example .env.local<br>
+nano .env.local<br>
+<br>
+# 4. Build para produção<br>
+npm run build<br>
+<br>
+# 5. Inicie o servidor<br>
+npm start
+            </div>
+        </div>
+
+        <div class="step">
+            <h3>Nginx (Proxy Reverso)</h3>
+            <div class="command">
+server {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;listen 80;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;server_name seu-dominio.com;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;location / {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proxy_pass http://localhost:3000;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proxy_http_version 1.1;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proxy_set_header Upgrade $http_upgrade;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proxy_set_header Connection 'upgrade';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proxy_set_header Host $host;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proxy_cache_bypass $http_upgrade;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}
+            </div>
+        </div>
+
+        <h2>🔒 Configurações de Segurança</h2>
+        
+        <div class="warning">
+            <strong>⚠️ Importante:</strong><br>
+            • Altere as credenciais de admin padrão<br>
+            • Use HTTPS em produção<br>
+            • Configure firewall adequadamente<br>
+            • Mantenha as dependências atualizadas
+        </div>
+
+        <h2>📱 Funcionalidades</h2>
+        
+        <div class="step">
+            <h3>✅ Recursos Implementados</h3>
+            <ul>
+                <li>🎯 Sistema de Airdrop completo</li>
+                <li>🔐 Painel administrativo seguro</li>
+                <li>📱 Interface responsiva</li>
+                <li>🌌 Animações 3D otimizadas</li>
+                <li>📊 Dashboard de estatísticas</li>
+                <li>💬 Notificações WhatsApp</li>
+                <li>🔗 Sistema de referral</li>
+                <li>🛡️ Segurança avançada</li>
+            </ul>
+        </div>
+
+        <h2>🆘 Suporte</h2>
+        
+        <div class="step">
+            <h3>Problemas Comuns</h3>
+            <p><strong>Erro de build:</strong> Verifique se todas as dependências estão instaladas</p>
+            <p><strong>Erro 500:</strong> Verifique as variáveis de ambiente</p>
+            <p><strong>Página em branco:</strong> Verifique o console do navegador</p>
+        </div>
+
+        <div class="success">
+            <strong>🎉 Instalação Concluída!</strong><br>
+            Sua aplicação STDOG Airdrop está pronta para uso!
+        </div>
+    </div>
+</body>
+</html>
